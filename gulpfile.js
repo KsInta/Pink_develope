@@ -7,6 +7,8 @@ var postcss = require("gulp-postcss");
 var autoprefixer = require("autoprefixer");
 var mqpacker = require("css-mqpacker");
 var minify = require("gulp-csso");
+var newer = require("gulp-newer");
+var image = require("gulp-image");
 var svgstore = require("gulp-svgstore");
 var svgmin = require("gulp-svgmin");
 var rename = require("gulp-rename");
@@ -31,10 +33,12 @@ gulp.task("style", function() {
 
 gulp.task("images", function() {
   return gulp.src("build/img/**/*.{png.jpg.gif}")
-    pipe(imagemin([
-      imagemin.optipng({optimizationLevel: 3}),
-      imagemin.jpegtran({progressive: true})
-    ]))
+    .pipe(newer("build/img"))
+    .pipe(image({
+      mozjpeg: false,
+      jpegoptim: false,
+      jpegRecompress: true
+    }))
     .pipe(gulp.dest("build/img"));
 });
 
@@ -62,7 +66,7 @@ gulp.task("build", function(fn){
 
 gulp.task("copy", function(){
   return gulp.src([
-    "fonts/**/*.{woff,woff2}",
+    "fonts/**/*.{woff,woff2,ttf}",
     "img/**",
     "js/**",
     "*.html"

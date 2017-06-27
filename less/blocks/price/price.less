@@ -1,0 +1,238 @@
+.price {
+  position: relative;
+  padding-top: 150px;
+  padding-bottom: 100px;
+  background: #f2f2f2 url("../img/bg-triangle-white.svg");
+  background-repeat: no-repeat;
+}
+
+.price__slider-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.price__slider-input {
+  display: none;
+}
+
+.price__slider-toggles {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-31px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 62px;
+  height: 20px;
+}
+
+.price__slider-toggle {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  &:active {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &--active {
+    background-color: @accent-color;
+    border: 3px solid #283645;
+
+    &:hover,
+    &:active {
+      background-color: @accent-color;
+    }
+  }
+}
+
+.price__table {
+  display: table;
+  width: 840px;
+  margin: 0 auto 0 50%;
+  border-collapse: collapse;
+  transform: translateX(-50%);
+}
+
+.price__table-header {
+  display: table-header-group;
+}
+
+.price__table-header-list {
+  display: table-row;
+}
+
+.price__table-header-item {
+  display: table-cell;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  .font(18px; 1.66; @open-sans-bold);
+  text-transform: uppercase;
+  text-align: center;
+  color: @accent-color;
+  background-color: #283645;
+  border-right: 2px solid #e5e5e5;
+
+  &--hit {
+    position: relative;
+    background-image: url("../img/bg-hit.svg");
+    background-repeat: no-repeat;
+    background-size: 70px auto;
+
+    &::before {
+      content: "ХИТ";
+      position: absolute;
+      top: 11px;
+      left: 11px;
+      width: 20px;
+      height: 20px;
+      .font(14px; 2.14);
+      font-weight: 500;
+      transform: rotate(-45deg);
+    }
+  }
+
+  span {
+    display: block;
+    .font(24px; 1.25; @open-sans-light);
+  }
+
+  &:first-child {
+    display: none;
+  }
+}
+
+.price__table-content {
+  display: table-row-group;
+}
+
+.price__table-content-list {
+  display: table-row;
+}
+
+.price__table-content-item {
+  display: table-cell;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 22px;
+  .font(14px; 2.14);
+  text-transform: uppercase;
+  border: 2px solid #e5e5e5;
+  background-color: @accent-color;
+  background-repeat: no-repeat;
+  background-position: center right 15px;
+
+  &--yes {
+    background-image: url("../img/icon-yes.svg");
+    background-size: 32px auto;
+  }
+
+  &--no {
+    background-image: url("../img/icon-no.svg");
+    background-size: 28px auto;
+  }
+
+  &:first-child {
+    display: none;
+  }
+}
+
+@media @tablet-width {
+  .price {
+    padding-top: 120px;
+    padding-bottom: 68px;
+  }
+
+  .price__slider-toggles {
+    display: none;
+  }
+
+  .price__table {
+    width: 620px;
+  }
+
+  .price__table-header-item {
+    width: 25%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .font(16px; 1.86; @open-sans-bold);
+
+    &--hit {
+      background-size: 57px auto;
+
+      &::before {
+        top: 7px;
+        left: 7px;
+      }
+    }
+
+    span {
+      .font(18px; 1.66; @open-sans-light);
+    }
+
+    &:first-child {
+      display: table-cell;
+      background-color: transparent;
+      border: none;
+    }
+  }
+
+  .price__table-content-item {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    .font(14px; 2.14);
+    text-transform: none;
+    background-position: center;
+
+    &:first-child {
+      display: table-cell;
+    }
+
+    &:not(:first-child) {
+      font-size: 0;
+    }
+  }
+}
+@media @desktop-width {
+  .price {
+    padding-top: 150px;
+    background-size: 100%;
+  }
+
+  .price__table {
+    width: 940px;
+  }
+
+  .price__table-header-item {
+    padding-top: 21px;
+    padding-bottom: 21px;
+    .font(18px; 1.66; @open-sans-bold);
+
+    &--hit {
+      background-size: 72px auto;
+
+      &::before {
+        top: 12px;
+        left: 12px;
+      }
+    }
+
+    span {
+      .font(24px; 1.25; @open-sans-light);
+    }
+  }
+
+  .price__table-content-item {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    .font(18px; 1.66);
+  }
+}

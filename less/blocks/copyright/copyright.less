@@ -1,0 +1,33 @@
+.copyright {
+  display: flex;
+  align-items: center;
+  width: 140px;
+  .font(14px; 1.3);
+  color: @main-color;
+  text-decoration: none;
+}
+
+.copyright__link {
+  display: inline-block;
+  vertical-align: baseline;
+
+  svg {
+    fill: #d22856;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      fill: @main-color;
+    }
+
+    &:active {
+      opacity: 0.3;
+    }
+  }
+}
+
+@media @desktop-width {
+  .copyright {
+    width: 160px;
+    .font(18px; 1);
+  }
+}

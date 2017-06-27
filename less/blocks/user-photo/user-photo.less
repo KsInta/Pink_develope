@@ -1,0 +1,133 @@
+.user-photo {
+  margin-bottom: 20px;
+}
+
+.user-photo__image {
+  .container(280px; 0);
+
+  &--photo-of-day {
+    .container(100%; 0);
+  }
+}
+
+.user-photo__descr {
+  display: flex;
+  flex-direction: column;
+  .container(246px; 17px);
+  margin-top: -3px;
+  background-color: #f2f2f2;
+}
+
+.user-photo__author {
+  margin-bottom: 0;
+  .font(14px; 1.7; @open-sans-bold);
+
+  span {
+    font-family: @open-sans-light;
+    text-transform: uppercase;
+  }
+}
+
+.user-photo__text {
+  margin-top: 0;
+  .font(14px; 1.7);
+}
+
+.user-photo__likes {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 32px;
+  .font(12px; 2);
+  text-transform: uppercase;
+  color: #d22856;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 13px;
+    height: 12px;
+    background-image: url("../img/icon-heart.svg");
+    background-repeat: no-repeat;
+    background-size: 13px auto;
+  }
+}
+
+@media @tablet-width {
+  .user-photo__image {
+    .container(300px; 0);
+
+    &--photo-of-day {
+      .container(100%; 0);
+    }
+  }
+
+  .user-photo__descr {
+    position: relative;
+    min-height: 155px;
+    .container(246px; 27px);
+    margin-top: -3px;
+
+    &--photo-of-day {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-top: 20px;
+      .container(566px; 27px);
+      min-height: 100px;
+      margin-top: -3px;
+    }
+  }
+
+  .user-photo__author {
+    margin-top: 20px;
+
+    &--photo-of-day {
+      order: 1;
+      margin-top: 0;
+    }
+  }
+
+  .user-photo__text {
+
+    &--photo-of-day {
+      order: 3;
+      flex-basis: 550px;
+      margin-top: 10px;
+    }
+  }
+
+  .user-photo__likes {
+    position: absolute;
+    bottom: 0;
+
+    &--photo-of-day {
+      position: relative;
+      order: 2;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-right: 32px;
+      padding-left: 0;
+
+      &::after {
+        right: 0;
+        left: auto;
+      }
+    }
+  }
+}
+
+@media @desktop-width {
+  .user-photo__descr {
+
+    &--photo-of-day {
+      .container(886px; 27px);
+      margin-top: -3px;
+    }
+  }
+
+  .user-photo__text {
+    flex-basis: 100%;
+  }
+}
